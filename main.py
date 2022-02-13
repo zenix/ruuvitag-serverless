@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 from matplotlib.dates import DateFormatter
 import matplotlib
 import asyncio
+import random
+import string
 
 bucket_name = os.environ.get('BUCKET_NAME')
 token = os.environ.get('TOKEN')
@@ -84,12 +86,15 @@ async def generate_images(result, days, metric):
 
 
 def generate_image(group, metric, name, days):
+
     data_filtered = group[[metric, 'updateAt']]
     plot = data_filtered.plot(x='updateAt', y=metric)
     plot.xaxis.set_major_formatter(DateFormatter("%a %H:%M"))
     image_buffer = io.BytesIO()
     plot.get_figure().savefig(image_buffer, format='JPEG')
-    image_name = '%s_%s_%s.jpg' % (name, metric, days)
+    letters = string.ascii_lowercase
+    random_string = '%s%s%s%s' % (random.choice(letters), random.choice(letters), random.choice(letters), random.choice(letters))
+    image_name = '%s_%s_%s_%s.jpg' % (name, metric, days, random_string)
     return image_name, image_buffer
 
 
