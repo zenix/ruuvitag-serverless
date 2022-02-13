@@ -1,0 +1,35 @@
+indexes:
+
+- kind: sensordata
+  ancestor: no
+  properties:
+  - name: name
+  - name: updateAt
+
+- kind: sensordata
+  ancestor: no
+  properties:
+  - name: updateAt
+  - name: name
+  - name: temperature
+
+- kind: sensordata
+  ancestor: no
+  properties:
+  - name: updateAt
+  - name: name
+  - name: pressure
+
+- kind: sensordata
+  ancestor: no
+  properties:
+    - name: updateAt
+    - name: name
+    - name: humidity
+
+- kind: sensordata
+  ancestor: no
+  properties:
+    - name: updateAt
+    - name: name
+    - name: batteryLevel
