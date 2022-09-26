@@ -52,7 +52,7 @@ def figure_out_date_interval(days):
 
 
 def generate_response(after_date, date_end, image_names):
-    image_html = ''.join(['%s</br><img src="https://storage.cloud.google.com/%s/%s"/><br/>' %
+    image_html = ''.join(['%s</br><img src="https://storage.cloud.google.com/%s/%s?authuser=2"/><br/>' %
                           (image_name,bucket_name ,image_name) for image_name in image_names])
     date_start_formatted = after_date.strftime('%H:%M %d %b %Y')
     date_end_formatted = date_end.strftime('%H:%M %d %b %Y')
